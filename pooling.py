@@ -57,13 +57,17 @@ def main():
         while True:
             dst = np.zeros((X_count,Y_count), dtype="uint8")
             ret, frame = cap.read()
-            max_pooling(frame)        
+
+            max_pooling(frame)
+
             cv2.imshow("result", dst)
             cv2.waitKey(33)
         return
+        
     max_pooling(frame)
     print(dst)
     cv2.imshow("result", dst)
     cv2.waitKey()
 
-main()
+if __name__ == '__main__'
+    main()
