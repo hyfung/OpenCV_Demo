@@ -23,9 +23,9 @@ cv2.createTrackbar("H", "Viewer", 0, 255, r_track)
 cv2.createTrackbar("S", "Viewer", 0, 255, g_track)
 cv2.createTrackbar("V", "Viewer", 0, 255, b_track)
 
-for i in range(60):
-# while True:
-    h,s,v = i,255,255    
+# for i in range(60):
+while True:
+    # h,s,v = 255,255,255    
     img = np.zeros((200,200,3), dtype='uint8')
     cv2.rectangle(img, (0,0), (199,199), (h,s,v), -1)
     img = cv2.cvtColor(img, cv2.COLOR_HSV2BGR)

@@ -12,7 +12,7 @@ ap.add_argument("-s", "--src", help="path to the video file", type=int, default=
 ap.add_argument("-f", "--file", help="file name to save to", type=str)
 args = vars(ap.parse_args())
 
-blurVal = 1
+blurVal = 5
 WVal = 0
 HVal = 0
 
@@ -30,15 +30,19 @@ def time_to_string_human():
     """
     return str(time.strftime('%Y-%m-%d %H:%M:%S'))
 
+def on_blur_trackbar(val):
+    global blurVal
+    blurVal = 2*val+1
+
 W = 1280
 H = 720
 R = 60
-
 cv2.namedWindow("Frame")
+cv2.createTrackbar("Blurness", "Frame", 0, 50, on_blur_trackbar)
 cap = cv2.VideoCapture(args['src'])
 
-cap.set(3,640)
-cap.set(4,480)
+cap.set(3,320)
+cap.set(4,240)
 
 _, last = cap.read()
 last = cv2.cvtColor(last, cv2.COLOR_BGR2GRAY)
@@ -48,11 +52,12 @@ while(True):
     frame = cv2.blur(frame, (blurVal,blurVal))
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    
+
+
     cv2.imshow('Frame',cv2.absdiff(gray,last))
     last = gray
     
-    if cv2.waitKey(100) & 0xFF == ord('q'):
+    if cv2.waitKey(33) & 0xFF == ord('q'):
         break
 
 cap.release()

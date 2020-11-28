@@ -12,9 +12,9 @@ def main():
             f = np.asarray(bytearray(f.getvalue()), dtype='uint8')
             img = cv2.imdecode(f, 1)
             cv2.imshow("img", img)
-            cv2.waitKey(33)
+            if cv2.waitKey(33) & 0xFF == ord('q'):
+                break
         time.sleep(1)
-    return
 
 if __name__ == "__main__":
     main()

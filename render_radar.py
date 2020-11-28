@@ -49,7 +49,8 @@ def mimic_360_radar():
             x,y = p2c_int(400,theta)
             cv2.line(mat, center, (x+width//2, y+height//2), (0,255,0), 3)
             cv2.imshow("Radar", mat)
-            cv2.waitKey(15)
+            if cv2.waitKey(15) & 0xFF == ord('q'):
+                break
 
 def mimic_front_radar():
     while True:
@@ -67,6 +68,7 @@ def mimic_front_radar():
             x,y = p2c_int(400, theta)
             cv2.line(mat, center, (x+width//2, y+height//2), (0,255,0), 3)
             cv2.imshow("Radar", mat)
-            cv2.waitKey(15)
+            if cv2.waitKey(15) & 0xFF == ord('q'):
+                break
 
 mimic_front_radar()

@@ -67,10 +67,14 @@ gauges = [
         Gauge((250,150), 100, 30),
         Gauge((400,150), 100, 30),
         Gauge((550,150), 100, 30),
+        Gauge((700,150), 100, 30),
+        Gauge((850,150), 100, 30),
+        Gauge((1000,150), 100, 30),
+        Gauge((1150,150), 100, 30),
         ]
 
 while True:
-    img = numpy.zeros((250,640,3), dtype='uint8')
+    img = numpy.zeros((250,1400,3), dtype='uint8')
     cv2.putText(img, "CPU Frequency Monitor", (10,25), cv2.FONT_HERSHEY_SIMPLEX,
                 1, (0, 255, 0), 1, cv2.LINE_AA, False)
     cv2.putText(img, "Core 0", (70, 190), cv2.FONT_HERSHEY_SIMPLEX,
@@ -82,7 +86,7 @@ while True:
     cv2.putText(img, "Core 3", (520,190), cv2.FONT_HERSHEY_SIMPLEX,
                 0.8, (0, 255, 255), 1, cv2.LINE_AA, False)
     
-    frequencies = subprocess.getoutput('cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq').split('\n')
+    frequencies = subprocess.getoutput('cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq').split('\n')[:4]
     for i in range(len(frequencies)):
         frequencies[i] = int(int(frequencies[i]) / 3100000 * 100)
     for i in range(len(frequencies)):

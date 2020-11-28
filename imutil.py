@@ -11,10 +11,10 @@ def new_bgr_frame(w,h):
 def new_unit_frame(w,h, value=1):
     return np.ones(h,w, dtype='uint8') * value
 
-def d2r(d):
+def d2r(d: float) -> float:
     return d * math.pi / 180
 
-def r2d(r):
+def r2d(r: float) -> float:
     return r / math.pi * 180
 
 def translate(image, x, y):
