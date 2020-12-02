@@ -3,6 +3,9 @@
 A collection of my OpenCV findings, mostly for fun
 
 # HSV_Palette_Viewer.py
+![alt text](https://github.com/hyfung/opencv_demo/blob/master/image/parametrized_circle.png "")
+
+# HSV_Palette_Viewer.py
 
 This script allows you to choose HSV value with slide bars and view the color
 ![alt text](https://github.com/hyfung/opencv_demo/blob/master/image/HSV_Palette_Viewer.png "")
