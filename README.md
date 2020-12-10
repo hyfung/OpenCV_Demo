@@ -2,7 +2,7 @@
 
 A collection of my OpenCV findings, mostly for fun
 
-# HSV_Palette_Viewer.py
+# parametrized_circle.py
 ![alt text](https://github.com/hyfung/opencv_demo/blob/master/image/parametrized_circle.png "")
 
 # HSV_Palette_Viewer.py
